@@ -22,6 +22,7 @@ nav,
   /* top: 0;
   left: 0; */
   width: 150px;
+  max-width: 15%;
   /* width: 100%; */
   /* display: flex;
   align-items: center; */
@@ -39,6 +40,7 @@ nav .sidebar {
   left: -100%;
   height: 100%;
   width: 150px;
+  max-width:15%;
   padding: 20px 0;
   backdrop-filter: blur(5px);
   background-color: #494949;
@@ -81,6 +83,7 @@ nav.open ~ .overlay {
 }
 
 .list .nav-link {
+  position: relative;
   display: flex;
   align-items: center;
   margin: 8px 0;
@@ -94,6 +97,20 @@ nav.open ~ .overlay {
 }
 .lists .nav-link:hover {
   background-color: #4070f4;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.lists .nav-link .active {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 15px;
+  border-radius: 50%;
+  background-color: #4070f4;
+  transition: all 0.25s ease;
+}
+.lists .nav-link:hover > .active {
+  background-color: #fff;
 }
 .lists .nav-link:hover .icon {
   color: #fff;

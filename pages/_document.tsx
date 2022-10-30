@@ -6,6 +6,15 @@ import Document, {
   NextScript,
   DocumentContext,
 } from "next/document";
+import { ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+
+import Sidebar from "../components/Sidebar";
+
+import styles from "../styles/Home.module.css";
+import "../styles/globals.css";
+import Image from "next/image";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -25,8 +34,32 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <div className={styles.container}>
+            <Sidebar />
+            <Image
+              priority
+              width={50}
+              height={50}
+              className={styles.profile}
+              src="https://sim.tins.com.br/media/1/usuarios/60911012346.jpg?externo=true"
+              alt="Debora"
+            />
+            <motion.main
+              variants={{
+                hidden: { opacity: 0, x: -200, y: 0 },
+                enter: { opacity: 1, x: 0, y: 0 },
+                exit: { opacity: 0, x: 0, y: -200 },
+              }}
+              initial="hidden"
+              animate="enter"
+              exit="exit"
+              transition={{ type: "linear" }}
+            >
+              <Main />
+              <NextScript />
+            </motion.main>
+            <ToastContainer />
+          </div>
         </body>
       </Html>
     );

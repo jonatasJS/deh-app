@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Header from "../../components/Sidebar";
-import styles from "../../styles/Home.module.css";
 
 export default function Teste() {
   return (

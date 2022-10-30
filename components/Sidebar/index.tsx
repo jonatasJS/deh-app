@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export default function Header() {
+export default function Sidebar() {
   const router = useRouter();
 
   return (
@@ -21,10 +21,10 @@ export default function Header() {
                 {router.asPath === "/" && <span className="active" />}
               </Link>
             </li>
-            
+
             <li className="list">
               <Link href="/teste" className={`nav-link`}>
-                <i className="bx bx-copy icon"></i>
+                <i className="bx bx-test-tube icon" />
                 <span className="link">TESTE</span>
                 {router.asPath === "/teste" && <span className="active" />}
               </Link>

@@ -1,4 +1,4 @@
-import Header from "../../components/Header";
+import Header from "../../components/Sidebar";
 import styles from "../../styles/Home.module.css";
 
 export default function Teste() {

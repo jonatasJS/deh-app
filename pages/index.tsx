@@ -3,14 +3,10 @@ import type { ChangeEvent } from "react";
 import { useState } from "react";
 import copy from "copy-to-clipboard";
 import { toast } from "react-toastify";
-
-import Header from "../components/Header";
-
-import styles from "../styles/Home.module.css";
+import { saveAs } from "file-saver";
 
 export default function Home() {
   const [valueTextArea, setValueTextArea] = useState("");
-  const [textInLinksFormated, setTextInLinksFormated] = useState([]);
 
   async function formatText(e: ChangeEvent<HTMLTextAreaElement>) {
     const value = e.target.value;
@@ -23,19 +19,25 @@ export default function Home() {
       return toast.info("Não contém conteudo para copiar!", {
         theme: "dark",
         pauseOnFocusLoss: false,
+        position: "bottom-right"
       });
     const textFormated = valueTextArea.split("\n");
     let text = "";
     for (let i = 0, len = textFormated.length; i < len; ++i) {
       const e = textFormated[i];
-      console.log(e);
+
       text = `${text}https://sim.tins.com.br/ti/dashboard/${e}/\n`;
     }
 
     copy(text);
+    var blob = new Blob([text], {
+      type: "text/plain;charset=utf-8",
+    });
+    saveAs(blob, "links.txt");
     toast.success("Copiado com sucesso!", {
       theme: "dark",
       pauseOnFocusLoss: false,
+      position: "bottom-right"
     });
     return setValueTextArea("");
   }

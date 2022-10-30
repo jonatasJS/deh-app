@@ -139,6 +139,51 @@ nav.open~.overlay {
   font-weight: 400;
 }
 
+@media only screen and (max-width: 960px) {
+  .nav-link {
+    justify-content: center;
+  }
+
+  .nav-link i.icon {
+    font-size: 40px;
+  }
+
+  .nav-link .active {
+    width: 20px;
+    height: 20px;
+  }
+
+  .nav-link  span.link {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 581px) {
+  .logo span {
+    font-size: 1rem !important;
+  }
+
+  .nav-link .icon {
+    font-size: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 365px) {
+  .logo span {
+    font-size: .5rem !important;
+  }
+
+  .nav-link .icon {
+    font-size: .5rem !important;
+  }
+
+  .nav-link .active {
+    width: 5px !important;
+    height: 5px !important;
+    right: 10px !important;
+  }
+}
+
 .overlay {
   position: fixed;
   top: 0;

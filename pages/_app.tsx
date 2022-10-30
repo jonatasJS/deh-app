@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
+
+import "../styles/globals.css";
 
 import "boxicons/css/boxicons.css";
 import "react-toastify/dist/ReactToastify.css";

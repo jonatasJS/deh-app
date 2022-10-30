@@ -10,3 +10,9 @@ export default function Teste() {
     </main>
   );
 }
+
+export async function getStaticProps() {
+  return {
+    props: { post: {} },
+  };
+}

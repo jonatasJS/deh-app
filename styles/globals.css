@@ -28,19 +28,21 @@ nav,
   align-items: center; */
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
 }
+
 nav .logo {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 5px;
 }
+
 nav .sidebar {
   position: fixed;
   top: 0;
   left: -100%;
   height: 100%;
   width: 150px;
-  max-width:15%;
+  max-width: 15%;
   padding: 20px 0;
   backdrop-filter: blur(5px);
   background-color: #494949;
@@ -55,6 +57,7 @@ nav .sidebar {
   margin-right: 14px;
   cursor: pointer;
 }
+
 .logo .logo-name {
   color: #fff;
   font-size: 22px;
@@ -64,7 +67,8 @@ nav .sidebar {
 nav.open .sidebar {
   left: 0;
 }
-nav.open ~ .overlay {
+
+nav.open~.overlay {
   opacity: 1;
   left: 260px;
   pointer-events: auto;
@@ -95,6 +99,7 @@ nav.open ~ .overlay {
 .lists .nav-link {
   transition: background-color 0.25s ease;
 }
+
 .lists .nav-link:hover {
   background-color: #4070f4;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -109,12 +114,15 @@ nav.open ~ .overlay {
   background-color: #4070f4;
   transition: all 0.25s ease;
 }
-.lists .nav-link:hover > .active {
+
+.lists .nav-link:hover>.active {
   background-color: #fff;
 }
+
 .lists .nav-link:hover .icon {
   color: #fff;
 }
+
 .lists .nav-link:hover .link {
   color: #fff;
 }
@@ -124,6 +132,7 @@ nav.open ~ .overlay {
   font-size: 20px;
   color: #fff;
 }
+
 .nav-link .link {
   font-size: 16px;
   color: #fff;
@@ -140,4 +149,96 @@ nav.open ~ .overlay {
   pointer-events: none;
   transition: all 0.4s ease;
   background: rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  background: #232323;
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 85%;
+  height: 100%;
+  max-height: 100%;
+  color: #fff;
+}
+
+.container main textarea {
+  min-width: 50%;
+  max-width: 80%;
+  width: 50%;
+  min-height: 50%;
+  max-height: 80%;
+  background: #494949;
+  outline: 1px solid rgb(0, 0, 0);
+  box-shadow: 0 0 50px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.container main textarea:-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: transparent;
+}
+
+.container main textarea::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+.container main textarea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #232323;
+}
+
+.container main button {
+  border: 0;
+  display: flex;
+  font-weight: bold;
+  color: #fff;
+  align-items: center;
+  margin: 15px 0;
+  box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  padding: 14px 12px;
+  border-radius: 8px;
+  background-color: #4070f4;
+  transition: all .2s ease-in-out;
+  gap: 10px;
+}
+
+.container main button:hover {
+  transform: scale(1.1);
+  background-color: #507dfa;
+  box-shadow: 0 10px 25px 1px #507dfa4a;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.profile {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  height: 10%;
+  width: 10%;
+  outline: 1px solid #507dfa;
+  transition: all .2s ease-in-out;
+}
+
+.profile:hover {
+  box-shadow: 0 0 20px 1px #507dfa7e;
+  transform: scale(1.1);
 }

@@ -7,13 +7,10 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { ToastContainer } from "react-toastify";
-import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
 import Sidebar from "../components/Sidebar";
 
-import styles from "../styles/Home.module.css";
-import "../styles/globals.css";
 import Image from "next/image";
 
 export default class MyDocument extends Document {
@@ -34,13 +31,13 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <div className={styles.container}>
+          <div className="container">
             <Sidebar />
             <Image
               priority
               width={50}
               height={50}
-              className={styles.profile}
+              className="profile"
               src="https://sim.tins.com.br/media/1/usuarios/60911012346.jpg?externo=true"
               alt="Debora"
             />

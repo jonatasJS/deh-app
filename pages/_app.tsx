@@ -3,7 +3,7 @@ import { ToastContainer } from "react-toastify";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 
-import Header from "../components/Sidebar";
+import Sidebar from "../components/Sidebar";
 
 import "boxicons/css/boxicons.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={styles.container}>
-      <Header />
+      <Sidebar />
       <Image
         priority
         width={50}

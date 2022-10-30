@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import styles from "../styles/Home.module.css";
 import "../styles/globals.css";
+import Image from "next/image";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -17,6 +18,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={styles.container}>
       <Header />
+      <img
+        className={styles.profile}
+        src="https://sim.tins.com.br/media/1/usuarios/60911012346.jpg?externo=true"
+        width={50}
+        height={50}
+        alt="Debora"
+      />
       <motion.main
         key={router.asPath}
         variants={{

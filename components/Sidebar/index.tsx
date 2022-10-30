@@ -18,7 +18,7 @@ export default function Sidebar() {
               <Link href="/" className={`nav-link`}>
                 <i className="bx bx-copy icon"></i>
                 <span className="link">COPIAR</span>
-                {router?.pathname === "/" && <span className="active" />}
+                {router?.asPath === "/" && <span className="active" />}
               </Link>
             </li>
 
@@ -26,7 +26,7 @@ export default function Sidebar() {
               <Link href="/teste" className={`nav-link`}>
                 <i className="bx bx-test-tube icon" />
                 <span className="link">TESTE</span>
-                {router?.pathname === "/teste" && <span className="active" />}
+                {router?.asPath === "/teste" && <span className="active" />}
               </Link>
             </li>
           </ul>

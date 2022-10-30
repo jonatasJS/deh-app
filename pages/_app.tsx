@@ -20,6 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <Header />
       <Image
         priority
+        width={50}
+        height={50}
         className={styles.profile}
         src="https://sim.tins.com.br/media/1/usuarios/60911012346.jpg?externo=true"
         alt="Debora"

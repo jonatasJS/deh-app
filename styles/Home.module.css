@@ -79,8 +79,8 @@
   top: 10px;
   right: 10px;
   border-radius: 50%;
-  height: 10%;
-  width: 10%;
+  height: 70px;
+  width: 70px;
   outline: 1px solid #507dfa;
   transition: all .2s ease-in-out;
 }

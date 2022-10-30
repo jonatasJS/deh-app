@@ -2,7 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: [ 'sim.tins.com.br' ]
-}
+  images: {
+    domains: ["sim.tins.com.br"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

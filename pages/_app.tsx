@@ -18,7 +18,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={styles.container}>
       <Header />
-      <img
+      <Image
+        priority
         className={styles.profile}
         src="https://sim.tins.com.br/media/1/usuarios/60911012346.jpg?externo=true"
         alt="Debora"

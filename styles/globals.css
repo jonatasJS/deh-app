@@ -133,6 +133,24 @@ nav.open~.overlay {
   color: #fff;
 }
 
+.nav-link:hover>.icon.clock {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .nav-link .link {
   font-size: 16px;
   color: #fff;
@@ -153,7 +171,7 @@ nav.open~.overlay {
     height: 20px;
   }
 
-  .nav-link  span.link {
+  .nav-link span.link {
     display: none;
   }
 }

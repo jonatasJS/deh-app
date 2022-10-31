@@ -23,6 +23,14 @@ export default function Sidebar() {
             </li>
 
             <li className="list">
+              <Link href="/clock" className={`nav-link`}>
+              <i className='bx bxs-hourglass icon clock'></i>
+                <span className="link">RELOGIO</span>
+                {router?.asPath === "/clock" && <span className="active" />}
+              </Link>
+            </li>
+
+            <li className="list">
               <Link href="/teste" className={`nav-link`}>
                 <i className="bx bx-test-tube icon" />
                 <span className="link">TESTE</span>

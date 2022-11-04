@@ -22,7 +22,7 @@ export default function Sidebar() {
               </Link>
             </li>
 
-            <li className="list">
+            {/* <li className="list">
               <Link href="/clock" className={`nav-link`}>
               <i className='bx bxs-hourglass icon clock'></i>
                 <span className="link">RELOGIO</span>
@@ -36,7 +36,7 @@ export default function Sidebar() {
                 <span className="link">TESTE</span>
                 {router?.asPath === "/teste" && <span className="active" />}
               </Link>
-            </li>
+            </li> */}
           </ul>
 
           <div className="bottom-cotent">

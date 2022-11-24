@@ -4,9 +4,11 @@ import { useState } from "react";
 import copy from "copy-to-clipboard";
 import { toast } from "react-toastify";
 import { saveAs } from "file-saver";
+import type { GetServerSidePropsContext } from "next";
 
 export default function Home() {
   const [valueTextArea, setValueTextArea] = useState("");
+  const [valueInput, setValueInput] = useState("");
 
   async function formatText(e: ChangeEvent<HTMLTextAreaElement>) {
     const value = e.target.value;
@@ -14,12 +16,12 @@ export default function Home() {
     return setValueTextArea(value);
   }
 
-  async function transformToLinkAndCopyToClipboard() {
+  async function downloadTxtFile() {
     if (valueTextArea == "")
-      return toast.info("Não contém conteudo para copiar!", {
+      return toast.info("Não contém conteudo para baixar!", {
         theme: "dark",
         pauseOnFocusLoss: false,
-        position: "bottom-right"
+        position: "bottom-right",
       });
     const textFormated = valueTextArea.split("\n");
     let text = "";
@@ -29,19 +31,44 @@ export default function Home() {
       text = `${text}https://sim.tins.com.br/ti/dashboard/${e}/\n`;
     }
 
-    copy(text);
     var blob = new Blob([text], {
       type: "text/plain;charset=utf-8",
     });
-    saveAs(blob, "links.txt");
+    saveAs(blob, `${valueInput !== "" ? valueInput : "links"}.txt`);
+    toast.success(`Download ${valueInput !== "" ? "\""+valueInput+"\" " : ""}efetuado com sucesso!`, {
+      theme: "dark",
+      pauseOnFocusLoss: false,
+      position: "bottom-right",
+    });
+    setValueInput("");
+    return setValueTextArea("");
+  }
+  
+  async function transformToLinkAndCopyToClipboard() {
+    if (valueTextArea == "")
+    return toast.info("Não contém conteudo para copiar!", {
+      theme: "dark",
+      pauseOnFocusLoss: false,
+      position: "bottom-right",
+    });
+    const textFormated = valueTextArea.split("\n");
+    let text = "";
+    for (let i = 0, len = textFormated.length; i < len; ++i) {
+      const e = textFormated[i];
+      
+      text = `${text}https://sim.tins.com.br/ti/dashboard/${e}/\n`;
+    }
+    
+    copy(text);
     toast.success("Copiado com sucesso!", {
       theme: "dark",
       pauseOnFocusLoss: false,
-      position: "bottom-right"
+      position: "bottom-right",
     });
+    setValueInput("");
     return setValueTextArea("");
   }
-
+  
   return (
     <>
       <Head>
@@ -50,19 +77,49 @@ export default function Home() {
       <main>
         <h1>Cole aqui</h1>
 
-        <textarea name="" id="" value={valueTextArea} onChange={formatText} />
+        <textarea
+          name=""
+          id=""
+          placeholder="Números..."
+          value={valueTextArea}
+          onChange={formatText}
+        />
 
-        <button onClick={transformToLinkAndCopyToClipboard}>
-          <i className="bx bx-copy icon"></i>
-          COPIAR
-        </button>
+        <input
+          type="text"
+          placeholder="Nome do arquivo (Opicional caso for baixar)"
+          onChange={(e) => setValueInput(e.target.value)}
+          value={valueInput}
+        />
+
+        <div>
+          <button onClick={transformToLinkAndCopyToClipboard}>
+            <i className="bx bx-copy icon"></i>
+            Copiar
+          </button>
+          <button onClick={downloadTxtFile}>
+            <i className="bx bx-download"></i>
+            Baixar TXT
+          </button>
+        </div>
       </main>
     </>
   );
 }
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   return {
+//     props: { post: {} },
+//   };
+// }
+
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59'
+  )
+
   return {
-    props: { post: {} },
-  };
+    props: {},
+  }
 }

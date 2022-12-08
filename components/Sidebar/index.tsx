@@ -22,7 +22,7 @@ export default function Sidebar() {
               </Link>
             </li>
 
-            <li className="list">
+            {/* <li className="list">
               <Link href="/clock" className={`nav-link`}>
               <i className='bx bxs-hourglass icon clock'></i>
                 <span className="link">RELOGIO</span>
@@ -30,7 +30,7 @@ export default function Sidebar() {
               </Link>
             </li>
 
-            {/* <li className="list">
+            <li className="list">
               <Link href="/teste" className={`nav-link`}>
                 <i className="bx bx-test-tube icon" />
                 <span className="link">TESTE</span>

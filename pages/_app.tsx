@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
           initial="hidden"
           animate="enter"
           exit="exit"
-          transition={{ type: "linear" }}
+          transition={{ type: "linear", bounce: 0.5, duration: 0.5 }}
         >
           <Component {...pageProps} />
         </motion.main>
